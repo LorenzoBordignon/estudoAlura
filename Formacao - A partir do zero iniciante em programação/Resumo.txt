@@ -1,0 +1,7 @@
+O caminho das pedras para entrar no universo da programação e começar com a criação de sites utilizando as linguagens populares CSS, HTML e JavaScript.
+
+Você vai aprender lógica de programação junto com as linguagens de programação mais utilizadas no mundo. Aprender lógica de programação é fundamental para o desenvolvimento de software porque fornece as bases para se criar, analisar e resolver problemas computacionais de forma estruturada e eficiente.
+
+Além disso, vamos aprender a manusear o GitHub, plataforma online de hospedagem e colaboração de projetos de desenvolvimento de software.
+
+Se você trabalha em outras áreas, como marketing digital, experiência do usuário (UX), design, ou áreas correlatas, essa formação vai te ajudar a entender melhor como a área de tecnologia funciona. Assim, você vai conseguir se comunicar melhor com a área de desenvolvimento!
