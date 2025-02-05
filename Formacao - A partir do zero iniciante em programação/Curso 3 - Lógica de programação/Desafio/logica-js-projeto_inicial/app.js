@@ -164,12 +164,12 @@ function somaParesProdutoImpares(){
     let numerosImpares = [];
     let somaPares = 0;
     let produtoImpares = 1;
-    let quantiaNum = parseInt(prompt('Digite a quantidade de números que deseja inserir'));8
+    let quantiaNum = parseInt(prompt('Digite a quantidade de números que deseja inserir'));
     for(let i = 0; i < quantiaNum; i++){
         let numero = parseInt(prompt('Digite um número'));
         if(isNaN(numero) || numero === '' || numero === 0){
             alert('Insira um número válido');
-            return;
+            jogarNovamente();
         }
         if(numero % 2 === 0){
             somaPares += numero;
