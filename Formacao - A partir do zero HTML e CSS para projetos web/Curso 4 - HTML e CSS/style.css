@@ -20,12 +20,10 @@ body{
 
 .apresentacao{
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 2.5% 15% 2.5% 15%;
-    margin-bottom: 7%;
-    gap: 40px;
+    margin: 6% 15% 7% 15%;
+    gap: 82px;
 }
 
 .titulo-destaque{
@@ -33,22 +31,22 @@ body{
 }
 
 .apresentacao__conteudo{
-    width: 615px;
+    width: 50%;
     display:flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
 }
 
 .titulo-conteudo{
-    font-size: 36px;
+    font-size: 2.25rem;
 }
 
 .paragrafo-conteudo{
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .titulo-links{
-    font-size: 30px;
+    font-size: 1.87rem;
     color: var(--cor-destaque);
 }
 
@@ -65,11 +63,11 @@ body{
     justify-content: center;
     background-color: var(--cor-fundo);
     border: var(--cor-destaque) 2px solid;
-    width: 378px;
+    width: 50%;
     padding: 21.5px 0;
     text-align: center;
     border-radius: 8px;
-    font-size: 24px;
+    font-size: 1.5rem;
     gap: 10px;
 }
 
@@ -87,39 +85,57 @@ a{
     background-color: var(--cor-texto);
 }
 
-img{
-    width: 500px;
-    height: 500px;
+.navigation{
+    padding: 4% 0% 0% 15%;
+}
+
+.navigation-menu{
+    display: flex;
+    gap: 50px;
+}
+
+.navigation-menu a{
+    font-size: 1.87rem;
+}
+
+.imagem{
+    width: 50%;
     border-radius: 10px;
     border: var(--cor-texto) 3px solid;
     box-shadow: 0px 0px 10px 0px var(--cor-destaque);
 }
 
-nav{
-    padding: 5% 15%;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    padding-bottom: 2%;
-}
-
-nav a{
-    color: var(--cor-destaque);
-    font-size: 30px;
-}
-
 .rodape{
-    position: fixed;
     text-align: center;
     bottom: 0;
     width: 100%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding-top: 21px;
+    padding-bottom: 22px;
     background-color: var(--cor-destaque);
     color: var(--cor-fundo);
 }
 
 .rodape p{
-    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .navigation{
+        padding: 10%;
+        padding-bottom: 0;
+    }
+
+    .navigation-menu{
+        justify-content: center;
+    }
+
+    .apresentacao{
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo{
+        width: auto;
+    }
 }
 
