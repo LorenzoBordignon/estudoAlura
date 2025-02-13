@@ -13,6 +13,9 @@
   --azul: #002f52;
   --cinza: #858585;
   --cor-rodape: #f9f9f9;
+  --fonte-secundaria: "Josefin Sans";
+  --preto: #000000;
+  --cinza2: #474646;
 }
 
 body {

@@ -3,3 +3,63 @@
   border-top: 1px solid var(--cinza);
   background-color: var(--cor-rodape);
 }
+
+.rodape__index {
+  display: none;
+  gap: 5em;
+}
+
+.rodape__index-coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.rodape__index-titulo {
+  color: var(--cinza);
+  font-size: 14px;
+}
+
+.rodape__index-item {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  color: var(--cinza2);
+}
+
+@media screen and (min-width: 1024px) {
+  .rodape {
+    display: flex;
+    gap: 5em;
+    padding-top: 3em;
+  }
+  .rodape__texto {
+    font-size: 24px;
+    display: block;
+  }
+  .rodape__index {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1728px) {
+  .rodape {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .rodape__index-coluna {
+    border-left: 1px solid var(--cinza);
+    padding-left: 1em;
+  }
+
+  .rodape__index {
+    gap: 15em;
+    margin-right: 7em;
+  }
+
+  .rodape__texto {
+    padding-left: 5em;
+  }
+}
