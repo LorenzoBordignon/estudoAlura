@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  color: white;
+  background-color: gainsboro;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: fit-content;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 300px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 50px 50px 50px;
+  background-color: rgb(236, 112, 29);
+  border: 4px solid white;
+  border-radius: 15px;
+  height: fit-content;
+}
+
+.input-nome {
+  border-radius: 15px;
+  border: 4px solid white;
+  padding: 15px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ec701d;
+}
+
+.input-nome::placeholder {
+  color: #ec701d;
+}
+
+input:focus {
+  outline: none;
+}
+
+.botoes {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 15px;
+  color: #ec701d;
+  padding: 15px;
+  border: 4px solid white;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 50%;
+}
+
+.form__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 35px 0 10px 0;
+  text-align: center;
+}
+
+.nomes {
+  background-color: #2873e2;
+  border: 4px solid white;
+  border-radius: 15px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 0;
+  height: fit-content;
+}
+
+.nomes__title {
+  margin: 35px 0 10px 0;
+  text-align: center;
+  font-size: 32px;
+}
+
+.lista-nomes {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  background-color: gainsboro;
+  border-radius: 15px;
+  border: 4px solid white;
+  font-size: 20px;
+  font-weight: 700;
+  /* height: fit-content; */
+}
+
+.nomeNaLista {
+  text-align: center;
+  color: #2873e2;
+}
+
+li {
+  list-style-type: none;
+}
+
+.lista__nome-vazia {
+  display: none;
+}
