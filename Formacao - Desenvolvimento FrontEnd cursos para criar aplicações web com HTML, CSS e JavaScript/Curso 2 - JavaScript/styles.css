@@ -237,3 +237,9 @@ textarea {
   color: var(--secondary-color);
   font-size: 15px;
 }
+
+.container-upload-imagem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
