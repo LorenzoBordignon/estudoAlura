@@ -1,4 +1,4 @@
-# 🚀 Minha Odisseia no Universo do Desenvolvimento Web
+# 🚀 Minha Odisseia no Universo do Aprendizado em Desenvolvimento Web
 
 Bem-vindo à minha jornada cósmica através dos reinos do HTML, CSS e JavaScript! 🌌👨‍🚀
 
@@ -20,9 +20,9 @@ Mergulhar em JavaScript foi como ganhar superpoderes. De repente, eu podia fazer
 
 Minha missão está longe de terminar! Próximas paradas:
 
-- [ ] Explorar o universo paralelo do Backend
 - [ ] Colonizar o planeta React
 - [ ] Descobrir vida em Node.js
+- [ ] - [ ] Explorar o universo paralelo do Backend
 
 ## 🧑‍🚀 Mensagem para Futuros Exploradores
 
