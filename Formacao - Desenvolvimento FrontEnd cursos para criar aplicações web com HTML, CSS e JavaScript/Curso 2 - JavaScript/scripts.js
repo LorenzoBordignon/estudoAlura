@@ -100,7 +100,8 @@ botaoPublicar.addEventListener('click', async (evento) => { //adiciona um ouvint
     evento.preventDefault() //previne o comportamento padrão do browser / user agent
     const nomeDoProjeto = document.getElementById('nome').value //valor inserido no input nome é atribuído à nomeDoProjeto 
     const descricaoDoProjeto = document.getElementById('descricao').value //valor inserido no input é atribuído à descricaoDoProjeto
-    const tagsProjeto = Array.from(listaTags.querySelectorAll('p')).map((tag) => tag.textContent) //explicação embaixo
+    //const tagsProjeto = ArrayDeP.map((p) => p.textContent)
+    const tagsProjeto = Array.from(listaTags.querySelectorAll('p')).map(tag => tag.textContent) //explicação embaixo
     //Cria array real invés like|Seleciona todos os p dentro da ul|Realiza sua função|para cada tag exiba seu conteúdo de texto
     //                             (array-like)                  para cada elemento do 
     //                                                          array, criando um novo
