@@ -3,7 +3,7 @@ botoes.forEach(btn => btn.addEventListener('click', filtrarLivros)) //para cada 
 
 function filtrarLivros() {
     const elementoBtn = document.getElementById(this.id) //this - refere-se ao elemento que disparou o evento(btn)
-    const categoria = elementoBtn.value //oi
+    const categoria = elementoBtn.value //oi oi dnv
     let livrosFiltrados = livros.filter(livro => livro.categoria == categoria)
     exibirOsLivrosNaTela(livrosFiltrados)
 
