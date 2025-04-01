@@ -77,9 +77,14 @@ function alterarContexto(contexto) {
 }
 
 const contagemRegressiva = () => {
-    if (tempoDecorridoEmSegundos == 0) {
+    if (tempoDecorridoEmSegundos <= 0) {
         somFimContagem.play()
         alert('Fim da Contagem, Volte ao Foco!')
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if (focoAtivo) {
+            const evento = new CustomEvent('FocoFinalizado')
+            document.dispatchEvent(evento)
+        }
         zerar()
         return;
     } else {
