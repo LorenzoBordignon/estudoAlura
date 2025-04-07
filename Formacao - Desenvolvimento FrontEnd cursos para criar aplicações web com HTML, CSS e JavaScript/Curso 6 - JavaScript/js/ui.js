@@ -10,6 +10,7 @@ const ui = {
 
     async renderizarPensamentos() {
         const listaPensamentos = document.getElementById('lista-pensamentos')
+        listaPensamentos.innerHTML = ''
         try {
             const pensamentos = await api.buscarPensamentos()
             pensamentos.forEach(ui.adicionarPensamentoNaLista)
@@ -39,7 +40,6 @@ const ui = {
 
         const botaoEditar = document.createElement('button')
         botaoEditar.classList.add('botao-editar')
-        // botaoEditar.onclick = () => ui.preencherFormulario(pensamento.id)
         botaoEditar.addEventListener('click', () => {
             ui.preencherFormulario(pensamento.id)
         })
@@ -49,9 +49,27 @@ const ui = {
         iconeEditar.alt = "Editar pensamento"
         botaoEditar.appendChild(iconeEditar)
 
+        const botaoExcluir = document.createElement('button')
+        botaoExcluir.classList.add('botao-excluir')
+        botaoExcluir.onclick = async () => {
+            try {
+                await api.excluirPensamento(pensamento.id)
+                ui.renderizarPensamentos()
+            } catch (error) {
+                alert('Erro ao excluir pensamento')
+                throw error
+            }
+        }
+
+        const iconeExcluir = document.createElement('img')
+        iconeExcluir.src = "assets/imagens/icone-excluir.png"
+        iconeExcluir.alt = "Excluir pensamento"
+        botaoExcluir.appendChild(iconeExcluir)
+
         const icones = document.createElement('div')
         icones.classList.add('icones')
         icones.appendChild(botaoEditar)
+        icones.appendChild(botaoExcluir)
 
         li.appendChild(iconeAspas)
         li.appendChild(pensamentoConteudo)
@@ -61,6 +79,24 @@ const ui = {
     },
     limparCamposForm() {
         document.getElementById('pensamento-form').reset()
+    },
+    async verificarListaVazia() {
+        const pensamentos = await api.buscarPensamentos()
+        if (pensamentos.length === 0) {
+            const sectionListaPensamentos = document.getElementById('lista-pensamentos-container')
+
+            const paragrafoListaVazia = document.createElement('p')
+            paragrafoListaVazia.innerText = "Nada por aqui ainda, que tal compartilhar alguma ideia?"
+            paragrafoListaVazia.classList.add('texto-lista-vazia')
+
+            const imagemListaVazia = document.createElement('img')
+            imagemListaVazia.src = '/assets/imagens/lista-vazia.png'
+            imagemListaVazia.style.marginTop = '20px'
+
+            sectionListaPensamentos.appendChild(paragrafoListaVazia)
+            sectionListaPensamentos.appendChild(imagemListaVazia)
+
+        }
     }
 }
 

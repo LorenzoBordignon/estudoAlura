@@ -2,6 +2,7 @@ import ui from './ui.js'
 import api from './api.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+    ui.verificarListaVazia()
     ui.renderizarPensamentos()
 
     const formularioPensamento = document.getElementById('pensamento-form')
