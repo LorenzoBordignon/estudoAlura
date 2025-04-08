@@ -18,18 +18,25 @@ async function manipularSubmissaoFormulario(event) {
   const id = document.getElementById("pensamento-id").value
   const conteudo = document.getElementById("pensamento-conteudo").value
   const autoria = document.getElementById("pensamento-autoria").value
+  const data = document.getElementById('pensamento-data').value
+
+  if (!validarData(data)) {
+    alert('Não é permitido o cadastro de datas futuras.')
+  }
 
   try {
     if (id) {
       await api.editarPensamento({
         id,
         conteudo,
-        autoria
+        autoria,
+        data
       })
     } else {
       await api.salvarPensamento({
         conteudo,
-        autoria
+        autoria,
+        data
       })
     }
     ui.renderizarPensamentos()
@@ -46,10 +53,15 @@ async function manipularBusca() {
   const termoBusca = document.getElementById('campo-busca').value
   try {
     const pensamentosFiltrados = await api.buscarPensamentoPorTermo(termoBusca)
-    console.log(pensamentosFiltrados)
     ui.renderizarPensamentos(pensamentosFiltrados)
   } catch (error) {
     alert('Erro ao realizar busca.')
     throw error
   }
+}
+
+function validarData(data) {
+  const dataAtual = new Date()
+  const dataInserida = new Date(data)
+  return dataInserida <= dataAtual
 }
