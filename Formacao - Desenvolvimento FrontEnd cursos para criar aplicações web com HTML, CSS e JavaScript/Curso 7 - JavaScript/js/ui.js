@@ -17,14 +17,17 @@ const ui = {
     const listaPensamentos = document.getElementById("lista-pensamentos")
     const mensagemVazia = document.getElementById("mensagem-vazia")
     listaPensamentos.innerHTML = ""
-
     try {
       let pensamentosParaRenderizar
-
       if (pensamentosFiltrados) {
         pensamentosParaRenderizar = pensamentosFiltrados
       } else {
         pensamentosParaRenderizar = await api.buscarPensamentos()
+        pensamentosParaRenderizar.sort((a, b) => {
+          if (a.favorito && !b.favorito) return -1;
+          if (!a.favorito && b.favorito) return 1;
+          return 0;
+        })
       }
 
       if (pensamentosParaRenderizar.length === 0) {
