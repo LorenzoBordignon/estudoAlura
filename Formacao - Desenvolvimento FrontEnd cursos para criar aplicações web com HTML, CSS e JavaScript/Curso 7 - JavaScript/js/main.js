@@ -1,8 +1,39 @@
 import ui from "./ui.js"
 import api from "./api.js"
 
+const pensamentoSet = new Set()
+
+async function adicionarChaveAoPensamento() {
+  try {
+    const pensamentos = await api.buscarPensamentos()
+    pensamentos.forEach(pensamento => {
+      const chavePensamento = `${pensamento.conteudo.trim().toLowerCase()}-${pensamento.autoria.trim().toLowerCase()}`
+      pensamentoSet.add(chavePensamento)
+    })
+  } catch (error) {
+    alert('Erro ao adicionar chave ao pensamento.')
+    throw error
+  }
+}
+
+function removerEspacos(string) {
+  return string.replaceAll(/\s+/g, '')
+}
+
+const regexConteudo = /^[a-zA-ZÀ-ÿ\s.,!?;:'"(){}$$$$-]{10,}$/;
+const regexAutoria = /^[A-Za-z]{3,15}$/
+
+function validarConteudo(conteudo) {
+  return regexConteudo.test(conteudo)
+}
+
+function validarAutoria(autoria) {
+  return regexAutoria.test(autoria)
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   ui.renderizarPensamentos()
+  adicionarChaveAoPensamento()
 
   const formularioPensamento = document.getElementById("pensamento-form")
   const botaoCancelar = document.getElementById("botao-cancelar")
@@ -20,8 +51,30 @@ async function manipularSubmissaoFormulario(event) {
   const autoria = document.getElementById("pensamento-autoria").value
   const data = document.getElementById('pensamento-data').value
 
+  const conteudoSemEspacos = removerEspacos(conteudo)
+  const autoriaSemEspacos = removerEspacos(autoria)
+
+  if (!validarConteudo(conteudoSemEspacos)) {
+    alert('É permitida a inclusão apenas de letras e espaços, com no mínimo 10 caracteres')
+    console.log(conteudoSemEspacos)
+    return;
+  }
+
+  if (!validarAutoria(autoriaSemEspacos)) {
+    alert('É permitida a inclusão apenas de letras, sem espaços, com no mínimo 3 e no máximo 10 caracteres')
+    return;
+  }
+
   if (!validarData(data)) {
     alert('Não é permitido o cadastro de datas futuras.')
+    return;
+  }
+
+  const chaveNovoPensamento = `${conteudo.trim().toLowerCase()}-${autoria.trim().toLowerCase()}`
+
+  if (pensamentoSet.has(chaveNovoPensamento)) {
+    alert('Esse pensamento já existe.')
+    return;
   }
 
   try {

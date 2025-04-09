@@ -9,10 +9,9 @@
     },
     {
       "id": "4c7d",
-      "favorito": false,
       "conteudo": "Da vida reclama, mas sem ela não vive!",
       "autoria": "Mestre Yoda",
-      "data": "2025-03-27T00:00:00.000Z"
+      "data": "2025-03-27"
     },
     {
       "id": "68uy",
@@ -101,6 +100,13 @@
       "conteudo": "dsdasdas",
       "autoria": "eu mesmo",
       "data": "2025-04-08",
+      "favorito": false
+    },
+    {
+      "id": "a8f6",
+      "conteudo": "OI!",
+      "autoria": "pessoa feliz",
+      "data": "2025-05-09T00:00:00.000Z",
       "favorito": false
     }
   ]
