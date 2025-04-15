@@ -5,12 +5,20 @@
   "description": "![Imagem de capa do curso. O título é \"3519 - Node.js e terminal\" e o subtítulo é \"Dominando o ambiente de desenvolvimento front-end\".](./thumb.png)",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-local": "json-server --watch backend/videos.json",
+    "lint": "eslint"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.24.0",
-    "eslint": "^9.24.0"
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "json-server": "^0.17.4",
+    "prettier": "3.0.3"
+  },
+  "dependencies": {
+    "axios": "1.6.0"
   }
 }
