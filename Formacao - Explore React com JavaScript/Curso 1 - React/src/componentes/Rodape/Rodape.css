@@ -1,0 +1,23 @@
+.appRodape {
+  display: flex;
+  background-color: #6278f7;
+  gap: 50px;
+  height: 200px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.appRodape div {
+  display: flex;
+  height: 24px;
+  width: fit-content;
+  gap: 16px;
+}
+
+.logo {
+  height: 64px;
+}
+
+.appRodape p {
+  color: white;
+}
