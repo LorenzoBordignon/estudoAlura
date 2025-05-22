@@ -3,45 +3,46 @@ import Banner from "./componentes/Banner/Banner.js";
 import Formulario from "./componentes/Formulario/index.js";
 import Time from "./componentes/Time/index.js";
 import Rodape from "./componentes/Rodape/index.js";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const times = [
+  const [times, setTimes] = useState([
     {
+      id: uuidv4(),
       nome: "Programação",
-      corPrimaria: "#57c278",
-      corSecundaria: "#d9f7e9",
+      cor: "#56C177",
     },
     {
+      id: uuidv4(),
       nome: "Front-End",
-      corPrimaria: "#82CFFA",
-      corSecundaria: "#E8F8FF",
+      cor: "#81CFFA",
     },
     {
+      id: uuidv4(),
       nome: "Data Science",
-      corPrimaria: "#A6D157",
-      corSecundaria: "#F0F8E2",
+      cor: "#A6D157",
     },
     {
+      id: uuidv4(),
       nome: "Devops",
-      corPrimaria: "#E06B69",
-      corSecundaria: "#FDE7E8",
+      cor: "#DF6B68",
     },
     {
+      id: uuidv4(),
       nome: "UX e Design",
-      corPrimaria: "#DB6EBF",
-      corSecundaria: "#FAE9F5",
+      cor: "#DB6DBF",
     },
     {
+      id: uuidv4(),
       nome: "Mobile",
-      corPrimaria: "#FFBA05",
-      corSecundaria: "#FFF5D9",
+      cor: "##FFBA06",
     },
     {
+      id: uuidv4(),
       nome: "Inovação e Gestão",
-      corPrimaria: "#FF8A29",
-      corSecundaria: "#FFEEDF",
+      cor: "#FFEEDF",
     },
-  ];
+  ]);
 
   const [colaboradores, setColaboradores] = useState([]);
 
@@ -49,10 +50,32 @@ function App() {
     setColaboradores([...colaboradores, colaborador]);
   };
 
+  function deletarColaborador(id) {
+    setColaboradores(
+      colaboradores.filter((colaborador) => colaborador.id !== id)
+    );
+  }
+
+  function mudarCorDoTime(cor, id) {
+    setTimes(
+      times.map((time) => {
+        if (time.id === id) {
+          time.cor = cor;
+        }
+        return time;
+      })
+    );
+  }
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarTime={cadastrarTime}
         nomeTimes={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
@@ -60,16 +83,25 @@ function App() {
       />
       {times.map((time) => (
         <Time
+          mudarCor={mudarCorDoTime}
+          id={time.id}
           key={time.nome}
           nome={time.nome}
-          corPrimaria={time.corPrimaria}
-          corSecundaria={time.corSecundaria}
+          cor={time.cor}
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.time === time.nome
           )}
+          aoDeletar={deletarColaborador}
         />
       ))}
-      <Rodape />
+      <Rodape
+        imagemFb="/imagens/fb.png"
+        altFb="Facebook"
+        imagemTw="/imagens/tw.png"
+        altTw="Twitter(X)"
+        imagemIg="/imagens/ig.png"
+        altIg="Instagram"
+      />
     </div>
   );
 }

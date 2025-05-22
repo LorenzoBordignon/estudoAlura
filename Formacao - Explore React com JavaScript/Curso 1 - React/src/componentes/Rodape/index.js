@@ -1,12 +1,12 @@
 import "./Rodape.css";
 
-const Rodape = () => {
+const Rodape = (props) => {
   return (
     <section className="appRodape">
       <div>
-        <img src="/imagens/fb.png" alt="Facebook" />
-        <img src="/imagens/tw.png" alt="Twitter(X)" />
-        <img src="/imagens/ig.png" alt="Instagram" />
+        <img src={props.imagemFb} alt={props.altFb} />
+        <img src={props.imagemTw} alt={props.altTw} />
+        <img src={props.imagemIg} alt={props.altIg} />
       </div>
       <img src="/imagens/logo.png" alt="Logo Organo" className="logo" />
       <p>Desenvolvido por Lorenzo Bordignon.</p>
