@@ -11,7 +11,7 @@ const Time = (props) => {
         type="color"
         className="input-cor"
         value={props.cor}
-        onChange={(evento) => props.mudarCor(evento.target.value, props.nome)}
+        onChange={(evento) => props.mudarCor(evento.target.value, props.id)}
       />
       <h3 style={cssH3}>{props.nome}</h3>
       <div className="colaboradores">
@@ -19,13 +19,14 @@ const Time = (props) => {
           return (
             <Colaborador
               id={colaborador.id}
+              favorito={colaborador.favorito}
               nome={colaborador.nome}
               cargo={colaborador.cargo}
               imagem={colaborador.imagem}
               key={colaborador.nome}
               corDeFundo={props.cor}
               aoDeletar={props.aoDeletar}
-              favorito={""}
+              aoFavoritar={props.aoFavoritar}
             />
           );
         })}

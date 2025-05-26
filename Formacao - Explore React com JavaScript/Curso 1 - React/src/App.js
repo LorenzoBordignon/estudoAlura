@@ -35,7 +35,7 @@ function App() {
     {
       id: uuidv4(),
       nome: "Mobile",
-      cor: "##FFBA06",
+      cor: "#FFBA06",
     },
     {
       id: uuidv4(),
@@ -62,6 +62,7 @@ function App() {
         if (time.id === id) {
           time.cor = cor;
         }
+
         return time;
       })
     );
@@ -69,6 +70,17 @@ function App() {
 
   function cadastrarTime(novoTime) {
     setTimes([...times, { ...novoTime, id: uuidv4() }]);
+  }
+
+  function resolverFavorito(id) {
+    setColaboradores(
+      colaboradores.map((colaborador) => {
+        if (colaborador.id === id) {
+          colaborador.favorito = !colaborador.favorito;
+        }
+        return colaborador;
+      })
+    );
   }
 
   return (
@@ -83,6 +95,7 @@ function App() {
       />
       {times.map((time) => (
         <Time
+          aoFavoritar={resolverFavorito}
           mudarCor={mudarCorDoTime}
           id={time.id}
           key={time.nome}

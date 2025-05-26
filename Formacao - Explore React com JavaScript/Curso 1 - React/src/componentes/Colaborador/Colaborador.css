@@ -61,3 +61,12 @@
     scale: 1.05;
   }
 }
+
+.favoritar {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.favoritar:hover {
+  cursor: pointer;
+}
