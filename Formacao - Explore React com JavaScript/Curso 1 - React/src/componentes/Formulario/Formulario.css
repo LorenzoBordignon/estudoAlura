@@ -18,3 +18,7 @@
   font-weight: 400;
   font-size: 32px;
 }
+
+.display {
+  display: none;
+}
