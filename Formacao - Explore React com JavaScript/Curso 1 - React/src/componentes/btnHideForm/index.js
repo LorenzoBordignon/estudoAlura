@@ -1,19 +1,18 @@
 import "./btnHideForm.css";
+import { useState } from "react";
 
-const BtnHideForm = () => {
-  const sectionForm = document.querySelector(".formulario-container");
+const BtnHideForm = ({ onToggleVisibility }) => {
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
-  function closeForm(evento) {
-    evento.preventDefault();
-    sectionForm.classList.toggle("display");
-  }
+  const handleClick = () => {
+    const newVisibility = !isFormVisible;
+    setIsFormVisible(newVisibility);
+    onToggleVisibility(newVisibility);
+  };
+
   return (
-    <button
-      onClick={(evento) => {
-        closeForm(evento);
-      }}
-    >
-      Fechar Formulário
+    <button className="btn-hide-form" onClick={handleClick}>
+      {isFormVisible ? "Esconder Formulário" : "Mostrar Formulário"}
     </button>
   );
 };

@@ -14,6 +14,7 @@ const Formulario = (props) => {
   const id = uuidv4();
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("#FFFFFF");
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   const aoSalvar = (event) => {
     event.preventDefault();
@@ -30,9 +31,16 @@ const Formulario = (props) => {
     setTime("");
   };
 
+  const handleToggleVisibility = (isVisible) => {
+    setIsFormVisible(isVisible);
+  };
   return (
     <>
-      <section className="formulario-container">
+      <section
+        className={`formulario-container ${
+          isFormVisible ? "visible" : "hidden"
+        }`}
+      >
         <form onSubmit={aoSalvar} className="formulario">
           <h2>Preencha os dados para criar o card do colaborador</h2>
           <Campo
@@ -92,7 +100,7 @@ const Formulario = (props) => {
           <Botao texto="Criar Card">Criar um novo Time</Botao>
         </form>
       </section>
-      <BtnHideForm />
+      <BtnHideForm onToggleVisibility={handleToggleVisibility} />
     </>
   );
 };
